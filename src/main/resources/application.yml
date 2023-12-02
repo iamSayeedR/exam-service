@@ -1,1 +1,15 @@
+server:
+  port : 8083
 
+questionnaire-service:
+  url: http://localhost:8082
+  end-point: /v1/questions
+
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+        loggerLevel: basic
