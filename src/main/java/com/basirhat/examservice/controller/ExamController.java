@@ -28,7 +28,7 @@ public class ExamController {
 
     @PostMapping("/end")
     public ResponseEntity<Void> endExam() {
-
+        log.info("end exam");
         return ResponseEntity.ok().build();
     }
 }

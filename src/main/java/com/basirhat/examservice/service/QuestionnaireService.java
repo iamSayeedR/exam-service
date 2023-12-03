@@ -17,7 +17,15 @@ public class QuestionnaireService {
 
     private final QuestionnaireServiceClient questionnaireServiceClient;
 
+    /**
+     * This method generates questions for the given type
+     * @param type
+     * @return
+     */
+
     public List<Question> getQuestions(String type) {
+
+        log.info("getting list of questions");
 
         ResponseEntity<List<Question>> listResponseEntity = questionnaireServiceClient.startExam(type);
 
