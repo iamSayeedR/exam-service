@@ -17,11 +17,11 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class ExamControllerTest {
 
     @Autowired
-    MockMvc mockMvc;
+    private MockMvc mockMvc;
 
 
     @Test
-    void shouldTestGetAndReturn200WhenControllerIsCalled() throws Exception {
+    void shouldTestGetAndReturn200WhenControllerIsCalledSucessfully() throws Exception {
 
         String type = "Java 17";
         mockMvc.perform(
@@ -31,6 +31,29 @@ class ExamControllerTest {
                 .andReturn();
 
     }
+    @Test
+    void shouldTestReturn400WhenControllerIsEmpty() throws Exception {
+
+        String type = "";
+        mockMvc.perform(
+                        get("/v1/start?examType=" + type)
+                                .contentType(APPLICATION_JSON_VALUE))
+                .andExpect(status().isBadRequest())
+                .andReturn();
+
+    }
+    @Test
+    void shouldTestReturn400WhenControllerIsNull() throws Exception {
+
+
+        mockMvc.perform(
+                        get("/v1/start?examType=" )
+                                .contentType(APPLICATION_JSON_VALUE))
+                .andExpect(status().isBadRequest())
+                .andReturn();
+
+    }
+
 
 
 }
