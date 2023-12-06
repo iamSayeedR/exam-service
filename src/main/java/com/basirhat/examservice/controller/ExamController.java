@@ -1,17 +1,16 @@
 package com.basirhat.examservice.controller;
 
-import com.basirhat.examservice.model.Question;
+
 import com.basirhat.examservice.service.QuestionnaireService;
+import com.basirhat.questionnaires.model.Answer;
+import com.basirhat.questionnaires.model.Question;
+import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,8 +35,15 @@ public class ExamController {
     }
 
     @PostMapping("/end")
-    public ResponseEntity<Void> endExam() {
+    public ResponseEntity<Void> endExam(@RequestBody List<@Valid Answer> answers) {
+
         log.info("end exam");
-        return ResponseEntity.ok().build();
+        questionnaireService.answer(answers);
+        return ResponseEntity.accepted().build();
     }
 }
+
+//create a new spring boot service for this end
+// v1/questions/end
+//<answer> "type" : java 17, "qid" : 1 ,"questions":"ghj","answers" ["A","B"]
+//

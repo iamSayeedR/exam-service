@@ -1,6 +1,7 @@
 package com.basirhat.examservice.client;
 
-import com.basirhat.examservice.model.Question;
+
+import com.basirhat.questionnaires.model.Question;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

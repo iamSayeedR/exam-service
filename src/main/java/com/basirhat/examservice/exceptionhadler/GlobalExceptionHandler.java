@@ -1,6 +1,7 @@
 package com.basirhat.examservice.exceptionhadler;
 
-import com.basirhat.examservice.model.ConstraintViolation;
+
+import com.basirhat.questionnaires.model.ConstraintViolation;
 import jakarta.validation.ConstraintViolationException;
 import org.springframework.http.ProblemDetail;
 import org.springframework.http.ResponseEntity;

@@ -1,7 +1,9 @@
 package com.basirhat.examservice.service;
 
 import com.basirhat.examservice.client.QuestionnaireServiceClient;
-import com.basirhat.examservice.model.Question;
+
+import com.basirhat.questionnaires.model.Answer;
+import com.basirhat.questionnaires.model.Question;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
@@ -16,6 +18,7 @@ import java.util.List;
 public class QuestionnaireService {
 
     private final QuestionnaireServiceClient questionnaireServiceClient;
+
 
     /**
      * This method generates questions for the given type
@@ -34,6 +37,16 @@ public class QuestionnaireService {
         } else {
             throw new RestClientException("Could not able to call Questionnaire Service Client.");
         }
+
+
+
+    }
+
+    public void answer (List<Answer> answerList) {
+
+        log.info("getting list of answers");
+
+
 
     }
 

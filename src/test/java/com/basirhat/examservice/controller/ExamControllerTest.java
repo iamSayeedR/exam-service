@@ -1,7 +1,8 @@
 package com.basirhat.examservice.controller;
 
-import com.basirhat.examservice.model.Question;
+
 import com.basirhat.examservice.service.QuestionnaireService;
+import com.basirhat.questionnaires.model.Question;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
