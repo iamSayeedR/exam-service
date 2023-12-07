@@ -4,3 +4,13 @@ server:
 questionnaire-service:
   url: http://localhost:8082
   end-point: /v1/questions
+
+
+spring:
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    exam-result-exchange-name: basirhat.exam.result
+    exam-result-routing-key: basirhat.exam.result

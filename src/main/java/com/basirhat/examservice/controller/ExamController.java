@@ -1,8 +1,10 @@
 package com.basirhat.examservice.controller;
 
 
+import com.basirhat.examservice.service.ExamPublisherService;
 import com.basirhat.examservice.service.QuestionnaireService;
 import com.basirhat.questionnaires.model.Answer;
+import com.basirhat.questionnaires.model.AnswerRequest;
 import com.basirhat.questionnaires.model.Question;
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
@@ -23,6 +25,8 @@ public class ExamController {
 
     private final QuestionnaireService questionnaireService;
 
+    private final ExamPublisherService examPublisherService;
+
     @GetMapping("/start")
     public ResponseEntity<List<Question>> startExam(@NotBlank @RequestParam String examType) {
         log.info("examType selected - {} ", examType);
@@ -35,10 +39,9 @@ public class ExamController {
     }
 
     @PostMapping("/end")
-    public ResponseEntity<Void> endExam(@RequestBody List<@Valid Answer> answers) {
-
+    public ResponseEntity<Void> endExam(@RequestBody AnswerRequest answerRequest) {
         log.info("end exam");
-        questionnaireService.answer(answers);
+        examPublisherService.sendMessage(answerRequest);
         return ResponseEntity.accepted().build();
     }
 }
