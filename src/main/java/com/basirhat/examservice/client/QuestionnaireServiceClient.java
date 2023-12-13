@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@FeignClient(value = "QuestionnaireServiceClient", url = "${questionnaire-service.url}")
+@FeignClient(value = "questionnaireServiceClient", url = "${questionnaire-service.url}")
 public interface QuestionnaireServiceClient {
 
     @GetMapping("${questionnaire-service.end-point}")

@@ -3,10 +3,8 @@ package com.basirhat.examservice.controller;
 
 import com.basirhat.examservice.service.ExamPublisherService;
 import com.basirhat.examservice.service.QuestionnaireService;
-import com.basirhat.questionnaires.model.Answer;
 import com.basirhat.questionnaires.model.AnswerRequest;
 import com.basirhat.questionnaires.model.Question;
-import jakarta.validation.Valid;
 import jakarta.validation.constraints.NotBlank;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
